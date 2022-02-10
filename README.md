@@ -36,7 +36,8 @@ Heavily based on [xav-jann1's rosserial_stm32f4](https://github.com/xav-jann1/ro
     ```c
     /* USER CODE BEGIN PV */
     /* Private variables ---------------------------------------------------------*/
-    uint32_t rx_head = 0;
+    uint32_t rx_head = 0u;
+    uint32_t tx_head = 0u;
     /* USER CODE END PV */
     ```
     ```c
