@@ -53,6 +53,7 @@ Heavily based on [rosserial_stm32f4](https://github.com/xav-jann1/rosserial_stm3
 ## Run
 ```sh
 rosrun rosserial_python serial_node.py _port:=/dev/ttyACM0 _baud:=921600
+```
 ---
 ## Exemples
 
