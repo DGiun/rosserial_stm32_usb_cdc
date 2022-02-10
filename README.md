@@ -4,33 +4,25 @@ ROSserial for `STM32`, developed to work with [STM32CubeIDE](https://www.st.com/
 
 Heavily based on [rosserial_stm32f4](https://github.com/xav-jann1/rosserial_stm32f4) and [yoneken's rosserial_stm32](https://github.com/yoneken/rosserial_stm32).
 
-## Generate code
-
-```sh
-$ cd path/to/your/stm32/project/Core
-$ rosrun rosserial_stm32f4 make_libraries.py .
-```
-
-## Usage
-### UART
+# Usage
+## UART
 1. Create a new STM32CubeIDE project :
     - Choose `C++` as `Targeted Language`
     - Choose `Yes` for "Initialize all peripherals with their default Mode ?"
-
-2. Configure microcontroller :
-    - Enable `USART2` global interrupt
-    - Enable `DMA` for `USART2_TX` and `USART2_RX` and set their priority to `HIGH`
+    
+2. Configure microcontroller (Full Speed USB)
+    - USB_OTG_FS -> Mode -> Device_Only
+    - USB_DEVICE -> Class For FS IP -> Communication Device Class (Virtual Port Com)
     - Generate code (+ [checking](#check-generated-code--very-important))
 
 3. Create `ROS` libraries in your project :
     ```sh
     $ cd your/catkin/workspace/src
-    $ git clone https://github.com/xav-jann1/rosserial_stm32f4
+    $ git clone https://github.com/DGiun/rosserial_stm32_usb_cdc
     $ cd ..
     $ catkin_make
     $ source devel/setup.bash
-    $ cd path/to/your/stm32/project/Core
-    $ rosrun rosserial_stm32f4 make_libraries.py .
+    $ rosrun rosserial_stm32_usb_cdc make_libraries.py ${path/to/your/stm32/project/Core}
     ```
     (`rosserial` should already be installed, if not : `sudo apt-get install ros-<distro>-rosserial`)
 
