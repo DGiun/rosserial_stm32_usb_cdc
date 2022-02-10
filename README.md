@@ -1,4 +1,4 @@
-# ROSserial on STM32
+# ROSserial on STM32 USB
 
 ROSserial for `STM32`, developed to work with [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html) 1.8.0 projects.
 
