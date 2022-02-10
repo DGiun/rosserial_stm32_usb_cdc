@@ -4,8 +4,7 @@ ROSserial for `STM32`, developed to work with [STM32CubeIDE](https://www.st.com/
 
 Heavily based on [rosserial_stm32f4](https://github.com/xav-jann1/rosserial_stm32f4) and [yoneken's rosserial_stm32](https://github.com/yoneken/rosserial_stm32).
 
-# Usage
-## UART
+## Usage
 1. Create a new STM32CubeIDE project :
     - Choose `C++` as `Targeted Language`
     - Choose `Yes` for "Initialize all peripherals with their default Mode ?"
@@ -50,7 +49,10 @@ Heavily based on [rosserial_stm32f4](https://github.com/xav-jann1/rosserial_stm3
         /* USER CODE END 6 */
     }
     ```
-
+---
+## Run
+```sh
+rosrun rosserial_python serial_node.py _port:=/dev/ttyACM0 _baud:=921600
 ---
 ## Exemples
 
