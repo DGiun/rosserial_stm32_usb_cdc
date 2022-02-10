@@ -36,7 +36,7 @@ Heavily based on [xav-jann1's rosserial_stm32f4](https://github.com/xav-jann1/ro
     ```c
     /* USER CODE BEGIN PV */
     /* Private variables ---------------------------------------------------------*/
-    extern uint32_t rx_head;
+    uint32_t rx_head = 0;
     /* USER CODE END PV */
     ~
     static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
