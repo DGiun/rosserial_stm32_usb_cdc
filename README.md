@@ -28,8 +28,8 @@ Heavily based on [rosserial_stm32f4](https://github.com/xav-jann1/rosserial_stm3
 
 4. Add `ros_lib` to the default paths for compilation :
 - Open `Project / Properties` window
-- Add in `C/C++ Build / Settings / Tool Settings / MCU G++ Compiler / Include paths` : 
-`../Core/Inc/ros_lib` `../USB_DEVICE/Target` `../USB_DEVICE/App` `../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc` `../Middlewares/ST/STM32_USB_Device_Library/Core/Inc`
+- Add in `C/C++ Build / Settings / Tool Settings / MCU G++ Compiler / Include paths` ->
+`../Core/Inc/ros_lib`, `../USB_DEVICE/Target`, `../USB_DEVICE/App`, `../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc`, `../Middlewares/ST/STM32_USB_Device_Library/Core/Inc`
 
 ### Check generated code (! Very important)
 
