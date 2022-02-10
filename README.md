@@ -33,7 +33,7 @@ Heavily based on [rosserial_stm32f4](https://github.com/xav-jann1/rosserial_stm3
 - Add in `C/C++ General / Paths and Symbols / Source Location` : `Middlewares`, `USB_DEVICE`
 
 5. Change `usbd_cdc_if.c` Code
-  ```c
+    ```c
     extern uint32_t rx_head;
     static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
     {
@@ -44,7 +44,7 @@ Heavily based on [rosserial_stm32f4](https://github.com/xav-jann1/rosserial_stm3
         return (USBD_OK);
         /* USER CODE END 6 */
     }
-  ```
+    ```
 
 ---
 ## Exemples
