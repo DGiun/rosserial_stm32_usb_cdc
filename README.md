@@ -35,7 +35,11 @@ Heavily based on [rosserial_stm32f4](https://github.com/xav-jann1/rosserial_stm3
 
 5. Change `CDC_Receive_FS` Function in `./USB_DEVICE/App/usbd_cdc_if.c`
     ```c
+    /* USER CODE BEGIN PV */
+    /* Private variables ---------------------------------------------------------*/
     extern uint32_t rx_head;
+    /* USER CODE END PV */
+    ~
     static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
     {
         /* USER CODE BEGIN 6 */
