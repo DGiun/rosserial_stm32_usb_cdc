@@ -27,10 +27,10 @@ Heavily based on [rosserial_stm32f4](https://github.com/xav-jann1/rosserial_stm3
     (`rosserial` should already be installed, if not : `sudo apt-get install ros-<distro>-rosserial`)
 
 4. Add default paths for compilation :
-- Open `Project / Properties` window
-- Add in `C/C++ Build / Settings / Tool Settings / MCU G++ Compiler / Include paths` : 
-`../Core/Inc/ros_lib`, `../USB_DEVICE/Target`, `../USB_DEVICE/App`, `../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc`, `../Middlewares/ST/STM32_USB_Device_Library/Core/Inc`
-- Add in `C/C++ General / Paths and Symbols / Source Location` : `Middlewares`, `USB_DEVICE`
+    - Open `Project / Properties` window
+    - Add in `C/C++ Build / Settings / Tool Settings / MCU G++ Compiler / Include paths` : 
+    `../Core/Inc/ros_lib`, `../USB_DEVICE/Target`, `../USB_DEVICE/App`, `../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc`,         `../Middlewares/ST/STM32_USB_Device_Library/Core/Inc`
+    - Add in `C/C++ General / Paths and Symbols / Source Location` : `Middlewares`, `USB_DEVICE`
 
 5. Change `CDC_Receive_FS` Function in `./USB_DEVICE/App/usbd_cdc_if.c`
     ```c
