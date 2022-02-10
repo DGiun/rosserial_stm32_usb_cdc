@@ -13,7 +13,7 @@ Heavily based on [rosserial_stm32f4](https://github.com/xav-jann1/rosserial_stm3
 2. Configure microcontroller (Full Speed USB)
     - USB_OTG_FS -> Mode -> Device_Only
     - USB_DEVICE -> Class For FS IP -> Communication Device Class (Virtual Port Com)
-    - Generate code (+ [checking](#check-generated-code--very-important))
+    - Generate code
 
 3. Create `ROS` libraries in your project :
     ```sh
