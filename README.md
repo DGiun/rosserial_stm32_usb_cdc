@@ -32,7 +32,7 @@ Heavily based on [rosserial_stm32f4](https://github.com/xav-jann1/rosserial_stm3
 `../Core/Inc/ros_lib`, `../USB_DEVICE/Target`, `../USB_DEVICE/App`, `../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc`, `../Middlewares/ST/STM32_USB_Device_Library/Core/Inc`
 - Add in `C/C++ General / Paths and Symbols / Source Location` : `Middlewares`, `USB_DEVICE`
 
-5. Change `CDC_Receive_FS` Code in `./USB_DEVICE/App/usbd_cdc_if.c`
+5. Change `CDC_Receive_FS` Function in `./USB_DEVICE/App/usbd_cdc_if.c`
     ```c
     extern uint32_t rx_head;
     static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
@@ -54,22 +54,3 @@ See a [simple example](./example) with a `Publisher` and a `Subscriber`.
 Also, see [yoneken's examples](https://github.com/yoneken/rosserial_stm32/tree/master/src/ros_lib/examples).
 
 ---
-## Usage for other STM32 series
-
-This package can easily be modified to be used for other STM32 series, by updating only two files :
-
-- In `ros_lib/BufferedSerial.hpp`'s includes, change `?` to the number of the serie :
-    ```cpp
-    #include <string.h>
-    #include "stm32f?xx_hal.h"
-    #include "stm32f?xx_hal_uart.h"
-    ```
-
-- In `ros_lib/STM32Hardware.h`, update the number of the `huart` used for the project :
-    ```cpp
-    #include "BufferedSerial.hpp"
-    extern UART_HandleTypeDef huart?;
-
-    // Create Serial Buffer with UART?:
-    BufferedSerial buff_serial(huart?);
-    ```
