@@ -49,7 +49,7 @@ Heavily based on [xav-jann1's rosserial_stm32f4](https://github.com/xav-jann1/ro
         /* USER CODE END 6 */
     }
     ```
-6. Rename main.c -> main.cpp ( if you will Change Project.ioc before renamed main.cpp -> main.c )
+6. Rename main.c -> main.cpp (  if you will renamed main.cpp -> main.c before Change Project.ioc  )
 ---
 ## Run
 ```sh
