@@ -12,7 +12,7 @@ $ rosrun rosserial_stm32f4 make_libraries.py .
 ```
 
 ## Usage
-# UART
+### UART
 1. Create a new STM32CubeIDE project :
     - Choose `C++` as `Targeted Language`
     - Choose `Yes` for "Initialize all peripherals with their default Mode ?"
