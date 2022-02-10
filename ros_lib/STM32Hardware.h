@@ -12,23 +12,8 @@
 
 #ifdef USB
 
-// Change "CDC_Receive_FS" Function
+// Change "CDC_Transmit_FS" and "CDC_Receive_FS" Function
 // in '../USB_DEVICE/App/usbd_cdc_if.c'
-//
-// /* USER CODE BEGIN PV */
-// /* Private variables ---------------------------------------------------------*/
-// uint32_t rx_head = 0u;
-// /* USER CODE END PV */
-// ~
-// static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
-// {
-//   /* USER CODE BEGIN 6 */
-//   rx_head += *Len;
-//   USBD_CDC_SetRxBuffer(&hUsbDeviceFS, &Buf[0]);
-//   USBD_CDC_ReceivePacket(&hUsbDeviceFS);
-//   return (USBD_OK);
-//   /* USER CODE END 6 */
-// }
 
 #include "usbd_cdc_if.h"
 
