@@ -21,7 +21,7 @@ Heavily based on [xav-jann1's rosserial_stm32f4](https://github.com/xav-jann1/ro
     $ cd ..
     $ catkin_make
     $ source devel/setup.bash
-    $ rosrun rosserial_stm32_usb_cdc make_libraries.py ${path/to/your/stm32/project/Core}
+    $ rosrun rosserial_stm32_usb_cdc make_libraries.py ${path/to/your/stm32/project}/Core
     ```
     (`rosserial` should already be installed, if not : `sudo apt-get install ros-<distro>-rosserial`)
 
