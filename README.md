@@ -34,16 +34,16 @@ Heavily based on [rosserial_stm32f4](https://github.com/xav-jann1/rosserial_stm3
 
 5. Change `usbd_cdc_if.c` Code
   ```c
-extern uint32_t rx_head;
-static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
-{
-  /* USER CODE BEGIN 6 */
-  rx_head += *Len;
-  USBD_CDC_SetRxBuffer(&hUsbDeviceFS, &Buf[0]);
-  USBD_CDC_ReceivePacket(&hUsbDeviceFS);
-  return (USBD_OK);
-  /* USER CODE END 6 */
-}
+    extern uint32_t rx_head;
+    static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
+    {
+        /* USER CODE BEGIN 6 */
+        rx_head += *Len;
+        USBD_CDC_SetRxBuffer(&hUsbDeviceFS, &Buf[0]);
+        USBD_CDC_ReceivePacket(&hUsbDeviceFS);
+        return (USBD_OK);
+        /* USER CODE END 6 */
+    }
   ```
 
 ---
