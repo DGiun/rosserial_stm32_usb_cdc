@@ -10,6 +10,7 @@
 
 #include <string.h>
 
+#define USB  // Serial on UART or USB
 #define STM32F4xx  // Change for your device
 
 #ifdef STM32F3xx
@@ -60,3 +61,4 @@ class BufferedSerial {
 };
 
 #endif /* BUFFEREDSERIAL_H_ */
+

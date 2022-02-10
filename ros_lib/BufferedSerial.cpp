@@ -1,17 +1,39 @@
 /*
  * BufferedSerial.cpp
  *
- *  Created on: Nov 2, 2019
- *      Author: xav-jann1
+ *  Created on: Fed 10, 2022
+ *      Author: DGiun
  */
 
 #include "BufferedSerial.hpp"
 
-#include "BufferedSerial.hpp"
+#ifdef UART
 extern UART_HandleTypeDef huart2;
 
 // Create Serial Buffer with UART2:
 BufferedSerial buff_serial(huart2);
+
+// Reset DMA to the beginning of the RX buffer:
+inline void BufferedSerial::reset_rx_buffer(void) {
+  HAL_UART_Receive_DMA(&huart, rx_buf, RX_BUF_SIZE);
+}
+
+// Get UART Handle:
+UART_HandleTypeDef* const BufferedSerial::get_handle(void) { return &huart; }
+
+
+// DMA callbacks:
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef* huart) {
+  // Comparing pointers: (remove equality if only one UART is used)
+  if (huart->Instance == buff_serial.get_handle()->Instance) {
+    buff_serial.flush_tx_buffer();
+  }
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef* huart) {
+  buff_serial.reset_rx_buffer();  // Can be commented if DMA mode for RX is Circular
+}
+#endif
 
 // Constructor:
 BufferedSerial::BufferedSerial(UART_HandleTypeDef &huart_)
@@ -94,24 +116,3 @@ void BufferedSerial::flush_tx_buffer(void) {
   mutex = false;
 }
 
-
-// Reset DMA to the beginning of the RX buffer:
-inline void BufferedSerial::reset_rx_buffer(void) {
-  HAL_UART_Receive_DMA(&huart, rx_buf, RX_BUF_SIZE);
-}
-
-// Get UART Handle:
-UART_HandleTypeDef* const BufferedSerial::get_handle(void) { return &huart; }
-
-
-// DMA callbacks:
-void HAL_UART_TxCpltCallback(UART_HandleTypeDef* huart) {
-  // Comparing pointers: (remove equality if only one UART is used)
-  if (huart->Instance == buff_serial.get_handle()->Instance) {
-    buff_serial.flush_tx_buffer();
-  }
-}
-
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef* huart) {
-  buff_serial.reset_rx_buffer();  // Can be commented if DMA mode for RX is Circular
-}
