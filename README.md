@@ -1,10 +1,8 @@
-# ROSserial on STM32F4
+# ROSserial on STM32
 
-ROSserial implementation for `STM32F4`, developed to work with [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html) projects.
+ROSserial for `STM32`, developed to work with [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html) 1.8.0 projects.
 
-Heavily based on [rosserial_mbed](https://github.com/ros-drivers/rosserial/tree/melodic-devel/rosserial_mbed) and inspired by [yoneken's rosserial_stm32](https://github.com/yoneken/rosserial_stm32).
-Also exists for [STM32F7](https://github.com/fdila/rosserial_stm32f7), but has not been tested.
-
+Heavily based on [rosserial_stm32f4](https://github.com/xav-jann1/rosserial_stm32f4) and [yoneken's rosserial_stm32](https://github.com/yoneken/rosserial_stm32).
 
 ## Generate code
 
@@ -14,7 +12,7 @@ $ rosrun rosserial_stm32f4 make_libraries.py .
 ```
 
 ## Usage
-
+# UART
 1. Create a new STM32CubeIDE project :
     - Choose `C++` as `Targeted Language`
     - Choose `Yes` for "Initialize all peripherals with their default Mode ?"
