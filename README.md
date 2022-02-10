@@ -17,7 +17,7 @@ Heavily based on [rosserial_stm32f4](https://github.com/xav-jann1/rosserial_stm3
 
 3. Create `ROS` libraries in your project :
     ```sh
-    $ cd your/catkin/workspace/src
+    $ cd your/catkin_ws/src
     $ git clone https://github.com/DGiun/rosserial_stm32_usb_cdc
     $ cd ..
     $ catkin_make
