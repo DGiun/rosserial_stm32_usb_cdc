@@ -85,3 +85,5 @@ See a [simple example](./example) with a `Publisher` and a `Subscriber`.
 Also, see [yoneken's examples](https://github.com/yoneken/rosserial_stm32/tree/master/src/ros_lib/examples).
 
 ---
+
+I'm tested STM32F429IGT and ROS Melodic on Ubuntu 18.04
