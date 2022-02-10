@@ -32,13 +32,14 @@ Heavily based on [xav-jann1's rosserial_stm32f4](https://github.com/xav-jann1/ro
         `../Middlewares/ST/STM32_USB_Device_Library/Core/Inc`
     - Add in `C/C++ General / Paths and Symbols / Source Location` : `Middlewares`, `USB_DEVICE`
 
-5. Change `CDC_Receive_FS` Function in `./USB_DEVICE/App/usbd_cdc_if.c`
+5. Change Functions in `./USB_DEVICE/App/usbd_cdc_if.c`
     ```c
     /* USER CODE BEGIN PV */
     /* Private variables ---------------------------------------------------------*/
     uint32_t rx_head = 0;
     /* USER CODE END PV */
-    ~
+    ```
+    ```c
     static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
     {
         /* USER CODE BEGIN 6 */
@@ -47,6 +48,26 @@ Heavily based on [xav-jann1's rosserial_stm32f4](https://github.com/xav-jann1/ro
         USBD_CDC_ReceivePacket(&hUsbDeviceFS);
         return (USBD_OK);
         /* USER CODE END 6 */
+    }
+    ```
+    ```c
+    uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len)
+    {
+        uint8_t result = USBD_OK;
+        /* USER CODE BEGIN 7 */
+        USBD_CDC_HandleTypeDef *hcdc = (USBD_CDC_HandleTypeDef*)hUsbDeviceFS.pClassData;
+
+        memcpy(UserTxBufferFS + tx_head, Buf, Len);
+        tx_head += Len;
+
+        if (hcdc->TxState != 0)
+            return USBD_BUSY;
+
+        USBD_CDC_SetTxBuffer(&hUsbDeviceFS, UserTxBufferFS, tx_head);
+        result = USBD_CDC_TransmitPacket(&hUsbDeviceFS);
+        tx_head = 0;
+        /* USER CODE END 7 */
+        return result;
     }
     ```
 6. Rename main.c -> main.cpp (  if you will renamed main.cpp -> main.c before Change Project.ioc  )
