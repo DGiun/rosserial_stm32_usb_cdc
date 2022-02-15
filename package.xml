@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <package format="2">
   <!-- Info -->
-  <name>rosserial_stm32f4</name>
+  <name>rosserial_stm32f4_usb_cdc</name>
   <version>1.0.0</version>
   <description>
     ROSserial implementation for STM32F4, developed to work with STM32CubeIDE projects.
   </description>
 
-  <maintainer email="ded2ai80@gmail.com">Xavier Jannin</maintainer>
-  <author>Xavier Jannin</author>
+  <maintainer email="kdgyun88@gmail.com">DGiun</maintainer>
+  <author>DGiun</author>
 
-  <license>BSD</license>
+  <license>DGiun</license>
 
   <!-- Dependencies -->
   <buildtool_depend>catkin</buildtool_depend>
