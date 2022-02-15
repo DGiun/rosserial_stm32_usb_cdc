@@ -1,4 +1,4 @@
-# ROSserial on STM32
+# ROSserial on STM32 USB
 
 ROSserial for `STM32`, developed to work with [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html) 1.8.0 projects.
 
@@ -21,16 +21,16 @@ Heavily based on [xav-jann1's rosserial_stm32f4](https://github.com/xav-jann1/ro
     $ cd ..
     $ catkin_make
     $ source devel/setup.bash
-    $ rosrun rosserial_stm32_usb_cdc make_libraries.py ${path/to/your/stm32/project/Core}
+    $ rosrun rosserial_stm32_usb_cdc make_libraries.py ${path/to/your/stm32/project}/Core
     ```
     (`rosserial` should already be installed, if not : `sudo apt-get install ros-<distro>-rosserial`)
 
 4. Add default paths for compilation :
     - Open `Project / Properties` window
-    - Add in `C/C++ Build / Settings / Tool Settings / MCU G++ Compiler / Include paths` : 
+    - Add in `C/C++ Build / Settings / Tool Settings / MCU G++ Compiler / Include paths` → 
         `../Core/Inc/ros_lib`, `../USB_DEVICE/Target`, `../USB_DEVICE/App`, `../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc`,        
         `../Middlewares/ST/STM32_USB_Device_Library/Core/Inc`
-    - Add in `C/C++ General / Paths and Symbols / Source Location` : `Middlewares`, `USB_DEVICE`
+    - Add in `C/C++ General / Paths and Symbols / Source Location` → `Middlewares`, `USB_DEVICE`
 
 5. Change Functions in `./USB_DEVICE/App/usbd_cdc_if.c`
     ```c
@@ -85,3 +85,5 @@ See a [simple example](./example) with a `Publisher` and a `Subscriber`.
 Also, see [yoneken's examples](https://github.com/yoneken/rosserial_stm32/tree/master/src/ros_lib/examples).
 
 ---
+
+I'm tested STM32F429IGT and ROS Melodic on Ubuntu 18.04
