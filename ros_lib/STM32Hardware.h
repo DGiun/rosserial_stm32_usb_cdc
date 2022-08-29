@@ -36,7 +36,6 @@ class STM32Hardware {
   int read() {
 	  // Quit if no new character:
 	  if (rx_head == rx_tail){
-		  memset(UserRxBufferFS, 0, sizeof(UserRxBufferFS));
 		  rx_head = rx_tail = 0u;
 		  return -1;
 	  }
